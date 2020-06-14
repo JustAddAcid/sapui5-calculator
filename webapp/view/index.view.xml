@@ -1,0 +1,51 @@
+<mvc:View controllerName="simpleCalcSimpleCalculator.controller.index" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m">
+	<App>
+		<pages>
+			<Page title="{i18n>title}">
+				<content>
+					<Input enabled="false" value="{viewState>/input}"></Input>
+					<HBox>
+						<Button text="7" press="appendSymbolToLine" width="{styesState>/btnWidth}"/>
+						<Button text="8" press="appendSymbolToLine" width="{styesState>/btnWidth}"/>
+						<Button text="9" press="appendSymbolToLine" width="{styesState>/btnWidth}"/>
+						<ToolbarSpacer width="12px"/>
+						<Button text="+" press="calcOperation"/>
+						<ToolbarSpacer width="12px"/>
+						<Button text="С" press="reset" width="{styesState>/additionalBtnsWidth}"/>
+					</HBox>
+					<HBox>
+						<Button text="4" press="appendSymbolToLine" width="{styesState>/btnWidth}"/>
+						<Button text="5" press="appendSymbolToLine" width="{styesState>/btnWidth}"/>
+						<Button text="6" press="appendSymbolToLine" width="{styesState>/btnWidth}"/>
+						<ToolbarSpacer width="12px"/>
+						<Button text="-" press="calcOperation"/>
+						<ToolbarSpacer width="12px"/>
+						<Button text="M+" press="setToMemory" width="{styesState>/additionalBtnsWidth}"/>
+					</HBox>
+					<HBox>
+						<Button text="1" press="appendSymbolToLine" width="{styesState>/btnWidth}"/>
+						<Button text="2" press="appendSymbolToLine" width="{styesState>/btnWidth}"/>
+						<Button text="3" press="appendSymbolToLine" width="{styesState>/btnWidth}"/>
+						<ToolbarSpacer width="12px"/>
+						<Button text="*" press="calcOperation"/>
+						<ToolbarSpacer width="12px"/>
+						<Button text="M-" press="setToMemory" width="{styesState>/additionalBtnsWidth}"/>
+					</HBox>
+					<HBox>
+						<Button text="0" press="appendSymbolToLine" width="{styesState>/btnWidth}"/>
+						<Button text="00" press="appendSymbolToLine" width="{styesState>/btnWidth}"/>
+						<Button text="." press="appendSymbolToLine" width="{styesState>/btnWidth}" enabled="{= !${viewState>/input}.includes('.') }"/>
+						<ToolbarSpacer width="12px"/>
+						<Button text="/" press="calcOperation"/>
+						<ToolbarSpacer width="12px"/>
+						<Button text="MRC" press="clearMemory" width="{styesState>/additionalBtnsWidth}"/>
+					</HBox>
+					<HBox>
+						<Button text="=" press="calcOperation" width="100px"/>
+					</HBox>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
