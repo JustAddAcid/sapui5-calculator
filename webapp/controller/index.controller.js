@@ -22,6 +22,8 @@ sap.ui.define([
 			this.view = this.getView();
 			this.view.setModel(this.viewState, "viewState");
 			this.view.setModel(this.stylesState, "styesState");
+			
+			this.addViewStateListener("/memory", this.memoryUsage);
 		},
 
 		removeLeadingZeros: function(numString) {
@@ -100,6 +102,15 @@ sap.ui.define([
 			var memory = this.viewState.getProperty("/memory");
 			this.viewState.setProperty("/input", memory.toString());
 			this.viewState.setProperty("/memory", 0);
+		},
+		
+		addViewStateListener: function(path, callback) {
+			var oBinding = new sap.ui.model.json.JSONPropertyBinding(this.viewState, path);
+			oBinding.attachChange(callback);
+		},
+		
+		memoryUsage: function(event){
+			sap.m.MessageToast.show("Memory usage! Set " + event.getSource().getValue());
 		}
 	});
 });
